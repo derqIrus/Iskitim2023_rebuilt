@@ -21,11 +21,12 @@ namespace Iskitim2023_rebuilt.View
     /// </summary>
     public partial class Calculation : Window
     {
-       
+        
         public Calculation()
         {
             InitializeComponent();
             DataContext = new ApplicationViewModel();
+            
         }
 
     }

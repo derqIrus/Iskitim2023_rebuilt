@@ -160,7 +160,7 @@ namespace Iskitim2023_rebuilt.ViewModel
             }
         }
 
-        // команда удаления поллютантов
+        // команда удаления точек
         public RelayCommand DeleteCommand_point
         {
             get

@@ -9,7 +9,7 @@ xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.Map
         mc:Ignorable="d"
         Title="Расчётный модуль" Height="450" Width="800">
     <Grid Background="SlateGray">
-        <Grid Margin="10,10,109,42">
+        <Grid Margin="10,10,149,47">
             <m:Map x:Name="myMap" 
                        CredentialsProvider="eZNgmmR40DyTunPmOrBp~kolAxjG20pwiJF7fIm2QRw~AgWBvZTh2hKwZ5-mh8lAl9VPhPh9CcU0YgZtlG62RHVmxwhFLrPTU1UecR96Old1" 
                        Mode="road" ZoomLevel="10" Center="54.656908,83.310743,0.0000">
@@ -25,12 +25,21 @@ xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.Map
                 </m:MapItemsControl>
             </m:Map>
         </Grid>
-        <StackPanel  Orientation="Horizontal" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="199">
+        <StackPanel  Orientation="Horizontal" Height="42" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="400">
             <Button Margin="5" Content="Расчёт"/>
             <Button Margin="5" Content="Выбор года"/>
             <Button Margin="5" Content="Экспорт"/>
+            <ComboBox Name="cmbColors" ItemsSource="{Binding polutions}" Width="202" Height="34">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Polution_name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+
         </StackPanel>
-       
+
         <Grid HorizontalAlignment="Right" Width="93">
             <Grid.RowDefinitions>
                 <RowDefinition />
