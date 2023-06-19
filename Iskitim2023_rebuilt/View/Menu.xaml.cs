@@ -40,6 +40,7 @@ namespace Iskitim2023_rebuilt
         private void calculate_btn_Click(object sender, RoutedEventArgs e)
         {
             Calculation calculation = new Calculation();
+            
             calculation.Show();
         }
     }

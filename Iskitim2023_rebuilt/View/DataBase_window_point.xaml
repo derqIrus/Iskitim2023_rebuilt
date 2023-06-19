@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Работа с данными" Height="250" Width="375">
+        Title="Работа с данными" Height="250" Width="375" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Margin" Value="8" />
@@ -23,19 +23,25 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="107" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Номер точки" FontWeight="Bold"/>
-        <TextBlock Text="Кординаты" Grid.Row="1" FontWeight="Bold"/>
-        <TextBlock Text="Кол-во кернов:" Grid.Row="2" FontWeight="Bold"/>
+        <TextBlock Text="Номер точки" FontWeight="Bold" Margin="8,8,8,8"/>
+        <TextBlock Text="Широта" Grid.Row="1" FontWeight="Bold" Margin="8,8,8,8"/>
+        <TextBlock Text="Долгота" Grid.Row="2" FontWeight="Bold" Margin="8,8,8,8"/>
+        <TextBlock Text="Кол-во проб" Grid.Row="3" FontWeight="Bold" Margin="8,8,8,8"/>
+        <TextBlock Text="Кол-во кернов:" Grid.Row="4" FontWeight="Bold" Margin="8,8,8,8"/>
 
-        <TextBox Text="{Binding Point_num}" Grid.Column="1" Background="WhiteSmoke"/>
-        <TextBox Text="{Binding Cord}" Grid.Column="1" Grid.Row="1" Background="WhiteSmoke"/>
-        <TextBox Text="{Binding Core_count}" Grid.Column="1" Grid.Row="2" Background="WhiteSmoke"/>
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+        <TextBox Text="{Binding Point_num}" Grid.Column="1" Background="WhiteSmoke" Margin="8,8,8,8"/>
+        <TextBox Text="{Binding Latitude}" Grid.Column="1" Grid.Row="1" Background="WhiteSmoke" Margin="8,8,8,8"/>
+        <TextBox Text="{Binding Longitude}" Grid.Column="1" Grid.Row="2" Background="WhiteSmoke" Margin="8,8,8,8"/>
+        <TextBox Text="{Binding Amount}" Grid.Column="1" Grid.Row="3" Background="WhiteSmoke" Margin="8,8,8,8"/>
+        <TextBox Text="{Binding Core_count}" Grid.Column="1" Grid.Row="4" Background="WhiteSmoke" Margin="8,8,8,8"/>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="4" Grid.Column="1" Margin="0,39,0,0" Grid.RowSpan="2" Width="152">
             <Button IsDefault="True" Click="Accept_Click" >OK</Button>
             <Button IsCancel="True" >Отмена</Button>
         </StackPanel>

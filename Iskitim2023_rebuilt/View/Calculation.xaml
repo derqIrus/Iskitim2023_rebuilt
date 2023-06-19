@@ -4,22 +4,27 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:map="clr-namespace:MapControl;assembly=MapControl.WPF"
-xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
-        xmlns:local="clr-namespace:Iskitim2023_rebuilt.View" xmlns:model="clr-namespace:Iskitim2023_rebuilt.Model" d:DataContext="{d:DesignInstance Type=model:point}"
+        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+        xmlns:local="clr-namespace:Iskitim2023_rebuilt.View" 
+        xmlns:model="clr-namespace:Iskitim2023_rebuilt.Model" d:DataContext="{d:DesignInstance Type=model:point}"
+       
         mc:Ignorable="d"
-        Title="Расчётный модуль" Height="450" Width="800">
+        Title="Расчётный модуль" Height="494" Width="959" WindowStartupLocation="CenterScreen">
     <Grid Background="SlateGray">
-        <Grid Margin="10,10,149,47">
+        <Grid Margin="10,10,243,47">
             <m:Map x:Name="myMap" 
                        CredentialsProvider="eZNgmmR40DyTunPmOrBp~kolAxjG20pwiJF7fIm2QRw~AgWBvZTh2hKwZ5-mh8lAl9VPhPh9CcU0YgZtlG62RHVmxwhFLrPTU1UecR96Old1" 
-                       Mode="road" ZoomLevel="10" Center="54.656908,83.310743,0.0000">
-                <m:Pushpin Location="54.656908,83.310743" ToolTip="Трубы завода" Background="#FF104EE5" />
+                       Mode="road" ZoomLevel="10" Center="54.656908,83.310743,0.0000" Height="421" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="706">
+                <m:Pushpin Location="54.656908,83.310743" ToolTip="Трубы завода" Background="#FFE54110" />
                 <m:MapItemsControl ItemsSource="{Binding points}">
                     <m:MapItemsControl.ItemTemplate>
                         <DataTemplate>
                             <m:Pushpin Background="#FF104EE5"
-                                           Location="{Binding Cord}" 
-                                           ToolTip="{Binding Point_num}"/>
+                                       
+                                           
+                                           Location="{Binding Location}"
+                                       Content="{Binding Point_num}"
+                                       />
                         </DataTemplate>
                     </m:MapItemsControl.ItemTemplate>
                 </m:MapItemsControl>
@@ -29,12 +34,8 @@ xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.Map
             <Button Margin="5" Content="Расчёт"/>
             <Button Margin="5" Content="Выбор года"/>
             <Button Margin="5" Content="Экспорт"/>
-            <ComboBox Name="cmbColors" ItemsSource="{Binding polutions}" Width="202" Height="34">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock Text="{Binding Polution_name}"/>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
+            <ComboBox Name="cmbColors" ItemsSource="{Binding polutionNames}" Width="202" Height="34">
+
             </ComboBox>
 
 
@@ -74,5 +75,17 @@ xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.Map
             <CheckBox Content="Точка №14" Grid.Row="13" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
             <CheckBox Content="Точка №15" Grid.Row="14" HorizontalAlignment="Left"  VerticalAlignment="Center"/>
         </Grid>
+        <Grid Margin="0,0,98,0" Height="239" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="140">
+            <Border BorderBrush="Black" BorderThickness="1" Margin="10,10,83,187" Background="#FF289213"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="10,57,83,140" Background="#FFE6FF07"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="10,104,83,93" OpacityMask="#FFB73E3E" Background="#FFFFBB00"/>
+            <Border BorderBrush="Black" BorderThickness="1" Margin="10,151,83,46" OpacityMask="#FFB73E3E" Background="#FFFF3A00"/>
+            <TextBlock Margin="70,23,29,200" TextWrapping="Wrap" Text=":0-100"/>
+            <TextBlock Margin="70,70,10,153" TextWrapping="Wrap" Text=":100-200"/>
+            <TextBlock Margin="70,117,10,106" TextWrapping="Wrap" Text=":200-300"/>
+            <TextBlock Margin="70,164,29,59" TextWrapping="Wrap" Text=": &gt;300"/>
+        </Grid>
+
+
     </Grid>
 </Window>

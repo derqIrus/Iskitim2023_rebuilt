@@ -105,3 +105,5 @@ D:\Iskitim2023_rebuilt\Iskitim2023_rebuilt\bin\Debug\net6.0-windows\Microsoft.Ma
 D:\Iskitim2023_rebuilt\Iskitim2023_rebuilt\bin\Debug\net6.0-windows\Geocoding.Core.dll
 D:\Iskitim2023_rebuilt\Iskitim2023_rebuilt\bin\Debug\net6.0-windows\Geocoding.Microsoft.dll
 D:\Iskitim2023_rebuilt\Iskitim2023_rebuilt\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+D:\Iskitim2023_rebuilt\Iskitim2023_rebuilt\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+D:\Iskitim2023_rebuilt\Iskitim2023_rebuilt\obj\Debug\net6.0-windows\App.baml

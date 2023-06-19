@@ -11,6 +11,7 @@ namespace Iskitim2023_rebuilt.Model
     {
         public DbSet<pollution> polutions { get; set; } = null!;
         public DbSet<point> points { get; set; } = null!;
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=./Diplom.db");

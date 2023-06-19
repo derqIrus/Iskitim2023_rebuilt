@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using MapControl;
 using System.Security.Cryptography;
+using static Iskitim2023_rebuilt.Model.MathModel;
+using System.Windows.Markup;
+
 
 namespace Iskitim2023_rebuilt.ViewModel
 {
@@ -21,22 +24,50 @@ namespace Iskitim2023_rebuilt.ViewModel
         RelayCommand? editCommand_point;
         RelayCommand? deleteCommand;
         RelayCommand? deleteCommand_point;
+      
         public ObservableCollection<pollution> polutions { get; set; }
+        public ObservableCollection<string> polutionNames { get; set; }
+
+        public ObservableCollection<MapPoint> MapPoints { get; set; }
         public ObservableCollection<point> points { get; set; }
 
-        public ObservableCollection<Location> Locations { get; } =new ObservableCollection<Location>();
-       
+        
+
+        MathModel MathModel = new MathModel();
+        
+
         public ApplicationViewModel()
         {
             db.Database.EnsureCreated();
             db.polutions.Load();
             db.points.Load();
             polutions = db.polutions.Local.ToObservableCollection();
+            polutionNames = new ObservableCollection<string>(db.polutions.Select(p => p.Polution_name).Distinct());
+          
+
             points = db.points.Local.ToObservableCollection();
-            Locations.Add(new Location(10, 15));
-        }
-      
             
+        }
+
+        private bool CanAddCalculation()
+        {
+            var checks = points.Where(y => y.IsSelected).Count();
+            return checks is 3;
+        }
+
+        private void AddCalculation()
+        {
+            var checks = points.Where(y => y.IsSelected);
+            var count = checks.Count();
+
+            var data = checks.Select(y => (y.Latitude, y.Longitude, y.Amount)).ToList();
+            if (count == 3)
+            {
+            //   CountMathModel2(data);
+             //   DrawPolygon(cp_Masses);
+            }
+        }
+
         // команда добавления поллютантов
         public RelayCommand AddCommand
         {
@@ -125,9 +156,12 @@ namespace Iskitim2023_rebuilt.ViewModel
                       point vm = new point
                       {
                           point_id = poin.point_id,
+                          Amount = poin.Amount,
                           Point_num = poin.Point_num,
-                          Cord = poin.Cord,
-                          Core_count = poin.Core_count
+                          Latitude = poin.Latitude,
+                          Longitude = poin.Longitude,
+                          Core_count = poin.Core_count,
+                          Location = poin.Location,
                       };
                       DataBase_window_point DataBase_window_point = new DataBase_window_point(vm);
 
@@ -135,7 +169,9 @@ namespace Iskitim2023_rebuilt.ViewModel
                       if (DataBase_window_point.ShowDialog() == true)
                       {
                           poin.Point_num = DataBase_window_point.point.Point_num;
-                          poin.Cord = DataBase_window_point.point.Cord;
+                          poin.Amount = DataBase_window_point.point.Amount;
+                          poin.Latitude = DataBase_window_point.point.Latitude;
+                          poin.Longitude = DataBase_window_point.point.Longitude;
                           poin.Core_count = DataBase_window_point.point.Core_count;
                           db.Entry(poin).State = EntityState.Modified;
                           db.SaveChanges();

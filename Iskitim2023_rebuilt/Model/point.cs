@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MapControl;
+using Microsoft.Maps.MapControl.WPF;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -6,19 +8,28 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Data;
+using System.Xml.Linq;
+using Location = MapControl.Location;
 
 namespace Iskitim2023_rebuilt.Model
 {
     public class point : INotifyPropertyChanged
     {
         [Key] public int point_id { get; set; }
-        int? point_num;
-        string? cord;
+        string point_num;
+        double latitude;
+        double longitude;
         int? core_count;
+        string? amount;
+        string location;
+
+
         
 
-        public int? Point_num
+
+        public string Point_num
         {
             get { return point_num; }
             set
@@ -28,17 +39,37 @@ namespace Iskitim2023_rebuilt.Model
             }
         }
 
-        public string? Cord
+        public string? Amount
         {
-            get { return cord; }
+            get { return amount; }
             set
             {
-                cord = value;
-                OnPropertyChanged("Cord");
+                amount = value;
+                OnPropertyChanged("Amount");
             }
         }
 
-        
+        public double Latitude
+        {
+            get { return latitude; }
+            set
+            {
+                latitude = value;
+                OnPropertyChanged("Latitude");
+            }
+        }
+
+        public double Longitude
+        {
+            get { return longitude; }
+            set
+            {
+                longitude = value;
+                OnPropertyChanged("Longitude");
+            }
+        }
+
+
 
         public int? Core_count
         {
@@ -50,7 +81,17 @@ namespace Iskitim2023_rebuilt.Model
             }
         }
 
-       
+        public string Location
+        {
+            get { return location ; }
+            set
+            {
+                location = value;
+                OnPropertyChanged("Location");
+            }
+        }
+
+        public bool IsSelected { get; internal set; }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-         Title="База Данных точек пробоотбора" Height="400" Width="610">
+         Title="База Данных точек пробоотбора" Height="400" Width="610" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -23,8 +23,12 @@
                     <StackPanel Orientation="Horizontal" >
                         <TextBlock Text="  Номер точки: " FontSize="20" FontWeight="Bold" Foreground="Black" />
                         <TextBlock Text="{Binding Point_num}" FontSize="20" Foreground="Black" />
-                        <TextBlock Text="  Кординаты: " FontSize="20" FontWeight="Bold" Foreground="Black" />
-                        <TextBlock Text="{Binding Cord}" FontSize="20" Foreground="Black" />
+                        <TextBlock Text="  Кол-во проб: " FontSize="20" FontWeight="Bold" Foreground="Black" />
+                        <TextBlock Text="{Binding Amount}" FontSize="20" Foreground="Black" />
+                        <TextBlock Text="  Широта: " FontSize="20" FontWeight="Bold" Foreground="Black" />
+                        <TextBlock Text="{Binding Latitude}" FontSize="20" Foreground="Black" />
+                        <TextBlock Text="  Долгота: " FontSize="20" FontWeight="Bold" Foreground="Black" />
+                        <TextBlock Text="{Binding Longitude}" FontSize="20" Foreground="Black" />
                         <TextBlock Text="  Кол-во кернов: " FontSize="20" FontWeight="Bold" Foreground="Black" />
                         <TextBlock Text="{Binding Core_count}" FontSize="20" Foreground="Black" />
                     </StackPanel>

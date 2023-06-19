@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Iskitim2023_rebuilt"
         mc:Ignorable="d"
-        Title="Меню" Height="520" Width="800">
+        Title="Меню" Height="520" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="SlateGray">
 
 
