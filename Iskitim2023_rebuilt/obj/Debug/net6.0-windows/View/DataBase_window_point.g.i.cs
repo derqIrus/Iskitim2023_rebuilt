@@ -52,7 +52,7 @@ namespace Iskitim2023_rebuilt.View {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Iskitim2023_rebuilt;component/view/database_window_point.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Iskitim2023_rebuilt;V1.0.0.0;component/view/database_window_point.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\View\DataBase_window_point.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
